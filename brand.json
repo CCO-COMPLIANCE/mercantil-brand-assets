@@ -1,0 +1,221 @@
+{
+  "brand": "Mercantil",
+  "repository": "mercantil-brand-assets",
+  "version": "1.0.0",
+  "updated": "2026-08-13",
+  "colors": {
+    "primary_red": {
+      "hex": "#FE0000",
+      "rgb": [
+        254,
+        0,
+        0
+      ],
+      "cmyk": [
+        0,
+        100,
+        100,
+        0
+      ],
+      "name": "Mercantil Red"
+    },
+    "black": {
+      "hex": "#000000",
+      "rgb": [
+        0,
+        0,
+        0
+      ]
+    },
+    "white": {
+      "hex": "#FFFFFF",
+      "rgb": [
+        255,
+        255,
+        255
+      ]
+    }
+  },
+  "typography": {
+    "wordmark_typeface": "Kievit (Italic)",
+    "note": "El wordmark viene vectorizado en los SVG/PDF. La tipografia Kievit es comercial (FontFont/Monotype) y NO se distribuye en este repositorio; licenciar por separado para textos complementarios."
+  },
+  "formats": {
+    "svg": "Vector, fondo transparente. Fuente de verdad para web y para agentes.",
+    "png_original": "5669x3307 px, fondo transparente, ~300 dpi.",
+    "png_web": "Derivados optimizados a 256/512/1024/2048 px de ancho.",
+    "jpg": "11339x6614 px, 300 dpi, CON fondo solido (blanco o negro). Solo para impresion.",
+    "tiff": "5670x3308 px, RGB, sin compresion. Archivo original de imprenta.",
+    "pdf": "Vector maestro, 7 paginas (una por variante)."
+  },
+  "assets": [
+    {
+      "id": "lockup-primary",
+      "type": "lockup",
+      "description": "Lockup horizontal. León rojo + wordmark negro.",
+      "recommended_use": "Uso principal sobre fondos claros.",
+      "on_background": "light",
+      "files": {
+        "svg": "svg/mercantil-lockup-primary.svg",
+        "png": "png/original/mercantil-lockup-primary.png",
+        "png_web": [
+          "png/web/mercantil-lockup-primary-256.png",
+          "png/web/mercantil-lockup-primary-512.png",
+          "png/web/mercantil-lockup-primary-1024.png",
+          "png/web/mercantil-lockup-primary-2048.png"
+        ],
+        "jpg": "jpg/mercantil-lockup-primary.jpg",
+        "tiff": "tiff/mercantil-lockup-primary.tif",
+        "pdf_page": 1
+      },
+      "png_size_px": [
+        5669,
+        3307
+      ]
+    },
+    {
+      "id": "lockup-inverse",
+      "type": "lockup",
+      "description": "Lockup horizontal. León rojo + wordmark blanco.",
+      "recommended_use": "Uso principal sobre fondos oscuros.",
+      "on_background": "dark",
+      "files": {
+        "svg": "svg/mercantil-lockup-inverse.svg",
+        "png": "png/original/mercantil-lockup-inverse.png",
+        "png_web": [
+          "png/web/mercantil-lockup-inverse-256.png",
+          "png/web/mercantil-lockup-inverse-512.png",
+          "png/web/mercantil-lockup-inverse-1024.png",
+          "png/web/mercantil-lockup-inverse-2048.png"
+        ],
+        "jpg": "jpg/mercantil-lockup-inverse.jpg",
+        "tiff": "tiff/mercantil-lockup-inverse.tif",
+        "pdf_page": 2
+      },
+      "png_size_px": [
+        5669,
+        3307
+      ]
+    },
+    {
+      "id": "lockup-black",
+      "type": "lockup",
+      "description": "Lockup horizontal monocromo negro.",
+      "recommended_use": "Impresión a 1 tinta, fax, grabados, fondos claros sin color.",
+      "on_background": "light",
+      "files": {
+        "svg": "svg/mercantil-lockup-black.svg",
+        "png": "png/original/mercantil-lockup-black.png",
+        "png_web": [
+          "png/web/mercantil-lockup-black-256.png",
+          "png/web/mercantil-lockup-black-512.png",
+          "png/web/mercantil-lockup-black-1024.png",
+          "png/web/mercantil-lockup-black-2048.png"
+        ],
+        "jpg": "jpg/mercantil-lockup-black.jpg",
+        "tiff": null,
+        "pdf_page": 3
+      },
+      "png_size_px": [
+        5669,
+        3307
+      ]
+    },
+    {
+      "id": "lockup-white",
+      "type": "lockup",
+      "description": "Lockup horizontal monocromo blanco.",
+      "recommended_use": "Fondos oscuros o fotografías; 1 tinta.",
+      "on_background": "dark",
+      "files": {
+        "svg": "svg/mercantil-lockup-white.svg",
+        "png": "png/original/mercantil-lockup-white.png",
+        "png_web": [
+          "png/web/mercantil-lockup-white-256.png",
+          "png/web/mercantil-lockup-white-512.png",
+          "png/web/mercantil-lockup-white-1024.png",
+          "png/web/mercantil-lockup-white-2048.png"
+        ],
+        "jpg": "jpg/mercantil-lockup-white.jpg",
+        "tiff": "tiff/mercantil-lockup-white.tif",
+        "pdf_page": 4
+      },
+      "png_size_px": [
+        5669,
+        3307
+      ]
+    },
+    {
+      "id": "isotipo-black",
+      "type": "isotipo",
+      "description": "Isotipo (león) monocromo negro.",
+      "recommended_use": "Espacios reducidos, favicon, sellos.",
+      "on_background": "light",
+      "files": {
+        "svg": "svg/mercantil-isotipo-black.svg",
+        "png": "png/original/mercantil-isotipo-black.png",
+        "png_web": [
+          "png/web/mercantil-isotipo-black-256.png",
+          "png/web/mercantil-isotipo-black-512.png",
+          "png/web/mercantil-isotipo-black-1024.png",
+          "png/web/mercantil-isotipo-black-2048.png"
+        ],
+        "jpg": "jpg/mercantil-isotipo-black.jpg",
+        "tiff": "tiff/mercantil-isotipo-black.tif",
+        "pdf_page": 5
+      },
+      "png_size_px": [
+        5669,
+        3307
+      ]
+    },
+    {
+      "id": "isotipo-white",
+      "type": "isotipo",
+      "description": "Isotipo (león) monocromo blanco.",
+      "recommended_use": "Espacios reducidos sobre fondo oscuro.",
+      "on_background": "dark",
+      "files": {
+        "svg": "svg/mercantil-isotipo-white.svg",
+        "png": "png/original/mercantil-isotipo-white.png",
+        "png_web": [
+          "png/web/mercantil-isotipo-white-256.png",
+          "png/web/mercantil-isotipo-white-512.png",
+          "png/web/mercantil-isotipo-white-1024.png",
+          "png/web/mercantil-isotipo-white-2048.png"
+        ],
+        "jpg": "jpg/mercantil-isotipo-white.jpg",
+        "tiff": "tiff/mercantil-isotipo-white.tif",
+        "pdf_page": 6
+      },
+      "png_size_px": [
+        5669,
+        3307
+      ]
+    },
+    {
+      "id": "isotipo-red",
+      "type": "isotipo",
+      "description": "Isotipo (león) en rojo de marca.",
+      "recommended_use": "Avatar, app icon, patrones, espacios reducidos.",
+      "on_background": "light",
+      "files": {
+        "svg": "svg/mercantil-isotipo-red.svg",
+        "png": "png/original/mercantil-isotipo-red.png",
+        "png_web": [
+          "png/web/mercantil-isotipo-red-256.png",
+          "png/web/mercantil-isotipo-red-512.png",
+          "png/web/mercantil-isotipo-red-1024.png",
+          "png/web/mercantil-isotipo-red-2048.png"
+        ],
+        "jpg": "jpg/mercantil-isotipo-red.jpg",
+        "tiff": "tiff/mercantil-isotipo-red.tif",
+        "pdf_page": 7
+      },
+      "png_size_px": [
+        5669,
+        3307
+      ]
+    }
+  ]
+}

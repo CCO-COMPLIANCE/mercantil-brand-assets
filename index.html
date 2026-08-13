@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mercantil — Brand Assets</title>
+<link rel="icon" href="png/web/favicon-32.png">
+<style>
+  :root{
+    --red:#FE0000; --ink:#101012; --muted:#6b6b76; --line:#e5e5ea;
+    --bg:#fafafa; --card:#fff; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+       -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  header{border-bottom:1px solid var(--line);background:#fff}
+  .head{display:flex;align-items:center;gap:18px;padding:26px 0}
+  .head img{height:34px}
+  .head .t{font-weight:600;letter-spacing:-.01em}
+  .head .s{color:var(--muted);font-size:14px}
+  .hero{padding:56px 0 40px}
+  h1{font-size:38px;line-height:1.15;letter-spacing:-.025em;margin:0 0 12px}
+  .lede{color:var(--muted);font-size:18px;max-width:60ch;margin:0 0 24px}
+  .btns{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:10px 16px;border-radius:9px;font-size:14px;font-weight:550;
+       text-decoration:none;border:1px solid var(--line);background:#fff;color:var(--ink)}
+  .btn.p{background:var(--red);border-color:var(--red);color:#fff}
+  h2{font-size:13px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);
+     font-weight:600;margin:48px 0 16px;padding-top:20px;border-top:1px solid var(--line)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .stage{height:150px;display:flex;align-items:center;justify-content:center;padding:22px}
+  .stage.light{background:
+      linear-gradient(45deg,#f0f0f2 25%,transparent 25%,transparent 75%,#f0f0f2 75%),
+      linear-gradient(45deg,#f0f0f2 25%,#fff 25%,#fff 75%,#f0f0f2 75%);
+      background-size:16px 16px;background-position:0 0,8px 8px}
+  .stage.dark{background:
+      linear-gradient(45deg,#232327 25%,transparent 25%,transparent 75%,#232327 75%),
+      linear-gradient(45deg,#232327 25%,#17171a 25%,#17171a 75%,#232327 75%);
+      background-size:16px 16px;background-position:0 0,8px 8px}
+  .stage img{max-width:100%;max-height:100%}
+  .meta{padding:14px 16px;border-top:1px solid var(--line)}
+  .meta .n{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;font-weight:600}
+  .meta .d{color:var(--muted);font-size:13px;margin-top:3px}
+  .dl{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}
+  .dl a{font-size:11.5px;font-weight:600;letter-spacing:.03em;text-decoration:none;color:var(--muted);
+        border:1px solid var(--line);border-radius:6px;padding:3px 8px}
+  .dl a:hover{color:var(--red);border-color:var(--red)}
+  .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+  .sw{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}
+  .sw .c{height:84px}
+  .sw .b{padding:12px 14px;font-size:13px}
+  .sw code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;color:var(--muted)}
+  .rules{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .rules>div{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+  .rules h3{margin:0 0 10px;font-size:14px}
+  .rules ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px}
+  .rules li{margin-bottom:6px}
+  .ok h3{color:#137a3d} .no h3{color:var(--red)}
+  table{width:100%;border-collapse:collapse;font-size:14px;background:#fff;
+        border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  th,td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--line)}
+  th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+  tr:last-child td{border-bottom:0}
+  td code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+  footer{margin-top:64px;border-top:1px solid var(--line);background:#fff;padding:28px 0;
+         color:var(--muted);font-size:13px}
+  @media(max-width:640px){h1{font-size:30px}.rules{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap head">
+  <img src="svg/mercantil-lockup-primary.svg" alt="Mercantil">
+  <div><div class="t">Brand Assets</div><div class="s">Logos oficiales · v1.0.0</div></div>
+</div></header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <h1>Logos de Mercantil</h1>
+    <p class="lede">Set completo en vector y raster, listo para diseño, web e impresión.
+    Los SVG salieron del PDF vectorial maestro — son vectores reales, no trazados automáticos.</p>
+    <div class="btns">
+      <a class="btn p" href="https://github.com/CCO-COMPLIANCE/mercantil-brand-assets/archive/refs/heads/main.zip">Descargar todo (ZIP)</a>
+      <a class="btn" href="https://github.com/CCO-COMPLIANCE/mercantil-brand-assets">Ver repositorio</a>
+      <a class="btn" href="brand.json">brand.json</a>
+    </div>
+  </section>
+
+  <h2>Lockup horizontal</h2>
+  <div class="grid" id="lockups"></div>
+
+  <h2>Isotipo</h2>
+  <div class="grid" id="isotipos"></div>
+
+  <h2>Color</h2>
+  <div class="swatches">
+    <div class="sw"><div class="c" style="background:#FE0000"></div>
+      <div class="b"><strong>Mercantil Red</strong><br><code>#FE0000 · rgb(254,0,0) · cmyk 0/100/100/0</code></div></div>
+    <div class="sw"><div class="c" style="background:#000"></div>
+      <div class="b"><strong>Negro</strong><br><code>#000000 · rgb(0,0,0)</code></div></div>
+    <div class="sw"><div class="c" style="background:#fff;border-bottom:1px solid var(--line)"></div>
+      <div class="b"><strong>Blanco</strong><br><code>#FFFFFF · rgb(255,255,255)</code></div></div>
+  </div>
+
+  <h2>Qué formato usar</h2>
+  <table>
+    <tr><th>Necesito</th><th>Carpeta</th><th>Detalle</th></tr>
+    <tr><td>Web, app, Figma, email</td><td><code>svg/</code></td><td>Vector transparente</td></tr>
+    <tr><td>Presentación, Word, redes</td><td><code>png/web/</code></td><td>256 · 512 · 1024 · 2048 px</td></tr>
+    <tr><td>Impresión offset / gran formato</td><td><code>pdf/</code> · <code>tiff/</code></td><td>Vector · 5670×3308 sin compresión</td></tr>
+    <tr><td>Favicon, app icon</td><td><code>png/web/favicon-*.png</code></td><td>16 · 32 · 48 · 180 · 512 px</td></tr>
+    <tr><td>Fondo sólido en imprenta</td><td><code>jpg/</code></td><td>11339×6614 px, 300 dpi</td></tr>
+  </table>
+
+  <h2>Reglas</h2>
+  <div class="rules">
+    <div class="ok"><h3>Sí</h3><ul>
+      <li>Deja libre alrededor del logo, como mínimo, la altura del león.</li>
+      <li>Tamaño mínimo: lockup 24 px / 15 mm. Isotipo 16 px / 8 mm.</li>
+      <li>Sobre fondo oscuro usa <code>inverse</code> o <code>white</code>.</li>
+      <li>Para una sola tinta usa <code>black</code> o <code>white</code>.</li>
+    </ul></div>
+    <div class="no"><h3>No</h3><ul>
+      <li>No cambies los colores ni apliques degradados.</li>
+      <li>No deformes, rotes, inclines ni reflejes.</li>
+      <li>No añadas sombras, contornos ni efectos.</li>
+      <li>No re-encajes el león y el wordmark: la proporción es fija.</li>
+      <li>No reconstruyas el wordmark tipeándolo.</li>
+    </ul></div>
+  </div>
+
+  <h2>Tipografía</h2>
+  <table>
+    <tr><th>Wordmark</th><td>Kievit Italic, <strong>vectorizado</strong> en SVG y PDF — no necesitas la fuente instalada.</td></tr>
+    <tr><th>Licencia</th><td>Kievit es comercial (FontFont / Monotype). No se distribuye aquí; hay que licenciarla aparte para textos complementarios.</td></tr>
+  </table>
+
+</div>
+
+<footer><div class="wrap">
+  Las marcas y logotipos de Mercantil son propiedad de Mercantil. Este repositorio existe para facilitar
+  el uso correcto de la marca; no otorga derechos de uso.
+</div></footer>
+
+<script>
+const A = [
+ ["lockup-primary","León rojo + wordmark negro","Uso principal, fondos claros","light"],
+ ["lockup-inverse","León rojo + wordmark blanco","Uso principal, fondos oscuros","dark"],
+ ["lockup-black","Monocromo negro","Una tinta, documentos B/N","light"],
+ ["lockup-white","Monocromo blanco","Fondos oscuros, fotografías","dark"],
+ ["isotipo-red","León en rojo de marca","Avatar, app icon, favicon","light"],
+ ["isotipo-black","León monocromo negro","Una tinta sobre fondo claro","light"],
+ ["isotipo-white","León monocromo blanco","Una tinta sobre fondo oscuro","dark"],
+];
+const card = a => `
+  <div class="card">
+    <div class="stage ${a[3]}"><img src="svg/mercantil-${a[0]}.svg" alt="${a[0]}"></div>
+    <div class="meta">
+      <div class="n">${a[0]}</div>
+      <div class="d">${a[1]} — ${a[2]}</div>
+      <div class="dl">
+        <a href="svg/mercantil-${a[0]}.svg" download>SVG</a>
+        <a href="png/web/mercantil-${a[0]}-1024.png" download>PNG 1024</a>
+        <a href="png/web/mercantil-${a[0]}-2048.png" download>PNG 2048</a>
+        <a href="png/original/mercantil-${a[0]}.png" download>PNG 300dpi</a>
+        <a href="jpg/mercantil-${a[0]}.jpg" download>JPG</a>
+      </div>
+    </div>
+  </div>`;
+document.getElementById('lockups').innerHTML  = A.filter(a=>a[0].startsWith('lockup')).map(card).join('');
+document.getElementById('isotipos').innerHTML = A.filter(a=>a[0].startsWith('isotipo')).map(card).join('');
+</script>
+</body>
+</html>
