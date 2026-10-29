@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mercantil One — Admin de Noticias</title>
+<link rel="icon" href="../png/web/favicon-32.png">
+<style>
+  :root{
+    --red:#FE0000; --ink:#101012; --muted:#6b6b76; --line:#e5e5ea;
+    --bg:#fafafa; --card:#fff; --radius:14px; --ok:#1f9d55; --warn:#b7791f;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+       -webkit-font-smoothing:antialiased}
+  button,input,textarea,select{font:inherit;color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  header{background:#fff;border-bottom:1px solid var(--line)}
+  .head{display:flex;align-items:center;gap:16px;padding:20px 0}
+  .head img{height:30px}
+  .head .t{font-weight:650}
+  .head .s{color:var(--muted);font-size:13px}
+  .head a{margin-left:auto;color:var(--muted);font-size:14px}
+  .cols{display:grid;grid-template-columns:420px 1fr;gap:24px;padding:28px 0 60px;align-items:start}
+  @media (max-width:900px){.cols{grid-template-columns:1fr}}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  h2{font-size:13px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:650;margin:0 0 16px}
+  label{display:block;font-size:13px;font-weight:600;margin:0 0 5px}
+  .f{margin-bottom:14px}
+  .hint{color:var(--muted);font-size:12px;font-weight:400}
+  input[type=text],input[type=url],input[type=date],input[type=datetime-local],textarea,select{
+    width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 11px;background:#fff}
+  input:focus,textarea:focus,select:focus{outline:2px solid rgba(254,0,0,.25);border-color:var(--red)}
+  textarea{min-height:150px;resize:vertical}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .two>*,.two input{min-width:0}
+  .check{display:flex;gap:8px;align-items:center;font-size:14px;font-weight:500}
+  .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+  .btn{padding:9px 15px;border-radius:9px;font-size:14px;font-weight:600;border:1px solid var(--line);background:#fff;cursor:pointer}
+  .btn.p{background:var(--red);border-color:var(--red);color:#fff}
+  .btn.sm{padding:5px 10px;font-size:12.5px}
+  .btn.danger{color:var(--red)}
+  table{width:100%;border-collapse:collapse}
+  th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:650;
+     padding:0 10px 10px;border-bottom:1px solid var(--line)}
+  td{padding:14px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  td .ttl{font-weight:650}
+  td .sub{color:var(--muted);font-size:13px}
+  .chip{display:inline-block;font-size:11.5px;font-weight:700;border-radius:999px;padding:2px 9px;letter-spacing:.02em}
+  .chip.live{background:#e6f6ec;color:var(--ok)}
+  .chip.draft{background:#f0f0f2;color:var(--muted)}
+  .chip.sched{background:#fdf3e1;color:var(--warn)}
+  .chip.exp{background:#f0f0f2;color:var(--muted)}
+  .chip.pin{background:#ffe5e5;color:var(--red)}
+  .bar{height:6px;background:#f0f0f2;border-radius:3px;overflow:hidden;margin-top:6px;width:120px}
+  .bar i{display:block;height:100%;background:var(--red)}
+  details{margin-top:6px;font-size:13px;color:var(--muted)}
+  details ul{margin:6px 0 0;padding-left:18px}
+  .acts{display:flex;gap:6px;flex-wrap:wrap}
+  .empty{color:var(--muted);text-align:center;padding:30px}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;
+         padding:10px 16px;border-radius:10px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none}
+  .toast.on{opacity:1}
+  .table-scroll{overflow-x:auto}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap head">
+    <img src="../svg/mercantil-lockup-primary.svg" alt="Mercantil">
+    <div><div class="t">Mercantil One · Noticias</div><div class="s">Administración de noticias para asesores</div></div>
+    <a href="index.html">Ver como asesor →</a>
+  </div>
+</header>
+
+<div class="wrap cols">
+  <form class="panel" id="form" autocomplete="off">
+    <h2 id="form-title">Nueva noticia</h2>
+    <input type="hidden" name="id">
+    <div class="f"><label>Título</label><input type="text" name="title" required maxlength="120" placeholder="SENDEROS OPEN HOUSE"></div>
+    <div class="f"><label>Resumen <span class="hint">— se ve en la tarjeta</span></label>
+      <input type="text" name="summary" maxlength="200"></div>
+    <div class="f"><label>Contenido</label><textarea name="body" required></textarea></div>
+    <div class="two">
+      <div class="f"><label>Categoría</label>
+        <select name="category"><option>Evento</option><option>Comunicado</option><option>Proyecto</option><option>Comercial</option><option>Capacitación</option></select></div>
+      <div class="f"><label>Autor</label><input type="text" name="author" value="Mercantil"></div>
+    </div>
+    <div class="two">
+      <div class="f"><label>Evento desde <span class="hint">opcional</span></label><input type="date" name="eventStart"></div>
+      <div class="f"><label>Evento hasta</label><input type="date" name="eventEnd"></div>
+    </div>
+    <div class="f"><label>Lugar <span class="hint">opcional</span></label><input type="text" name="location"></div>
+    <div class="f"><label>Imagen (URL) <span class="hint">opcional — sin imagen se usa el isotipo con las fechas</span></label>
+      <input type="url" name="imageUrl" placeholder="https://…"></div>
+    <div class="two">
+      <div class="f"><label>Publicar desde</label><input type="datetime-local" name="publishAt"></div>
+      <div class="f"><label>Ocultar desde <span class="hint">opcional</span></label><input type="datetime-local" name="expiresAt"></div>
+    </div>
+    <div class="f two">
+      <label class="check"><input type="checkbox" name="pinned"> Fijar arriba</label>
+      <label class="check"><input type="checkbox" name="draft"> Guardar como borrador</label>
+    </div>
+    <div class="btns">
+      <button class="btn p" type="submit" id="submit">Publicar</button>
+      <button class="btn" type="button" id="cancel" hidden>Cancelar edición</button>
+    </div>
+  </form>
+
+  <section class="panel">
+    <h2>Noticias</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Noticia</th><th>Estado</th><th>Lecturas</th><th></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="news-store.js"></script>
+<script src="news-ui.js"></script>
+<script>
+(function () {
+  'use strict';
+  var esc = NewsUI.esc;
+  var form = document.getElementById('form');
+  var advisors = NewsStore.advisors();
+  var names = {};
+  advisors.forEach(function (a) { names[a.id] = a.name; });
+
+  function toast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg; t.classList.add('on');
+    clearTimeout(toast.h); toast.h = setTimeout(function () { t.classList.remove('on'); }, 2200);
+  }
+
+  function localInput(d) {
+    var p = function (n) { return String(n).padStart(2, '0'); };
+    return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) + 'T' + p(d.getHours()) + ':' + p(d.getMinutes());
+  }
+
+  function status(n) {
+    var now = Date.now();
+    if (n.status !== 'published') return '<span class="chip draft">Borrador</span>';
+    if (n.expiresAt && new Date(n.expiresAt).getTime() <= now) return '<span class="chip exp">Vencida</span>';
+    if (n.publishAt && new Date(n.publishAt).getTime() > now) return '<span class="chip sched">Programada · ' + esc(NewsUI.dateTime(n.publishAt)) + '</span>';
+    return '<span class="chip live">Publicada</span>';
+  }
+
+  function render() {
+    var items = NewsStore.list();
+    var rows = document.getElementById('rows');
+    if (!items.length) { rows.innerHTML = '<tr><td colspan="4" class="empty">Todavía no hay noticias.</td></tr>'; return; }
+    rows.innerHTML = items.map(function (n) {
+      var reads = NewsStore.readsFor(n.id);
+      var readIds = {};
+      reads.forEach(function (r) { readIds[r.advisorId] = r; });
+      var pct = Math.round(reads.length / advisors.length * 100);
+      var who = advisors.map(function (a) {
+        var r = readIds[a.id];
+        return '<li>' + esc(a.name) + ' — ' + (r ? 'leída ' + esc(NewsUI.dateTime(r.readAt)) : '<b>pendiente</b>') + '</li>';
+      }).join('');
+      return '<tr>' +
+        '<td><div class="ttl">' + esc(n.title) + '</div>' +
+        '<div class="sub">' + esc(n.category || '') + (n.eventStart ? ' · ' + esc(NewsUI.eventRange(n.eventStart, n.eventEnd)) : '') + '</div></td>' +
+        '<td>' + status(n) + (n.pinned ? ' <span class="chip pin">Fijada</span>' : '') + '</td>' +
+        '<td>' + reads.length + ' / ' + advisors.length + ' asesores<div class="bar"><i style="width:' + pct + '%"></i></div>' +
+        '<details><summary>Detalle</summary><ul>' + who + '</ul></details></td>' +
+        '<td><div class="acts">' +
+        '<button class="btn sm" data-act="edit" data-id="' + esc(n.id) + '">Editar</button>' +
+        '<button class="btn sm" data-act="reset" data-id="' + esc(n.id) + '" title="Vuelve a mostrarla a todos los asesores">Reenviar</button>' +
+        '<button class="btn sm danger" data-act="del" data-id="' + esc(n.id) + '">Eliminar</button>' +
+        '</div></td></tr>';
+    }).join('');
+  }
+
+  function resetForm() {
+    form.reset();
+    form.id.value = '';
+    form.publishAt.value = localInput(new Date());
+    document.getElementById('form-title').textContent = 'Nueva noticia';
+    document.getElementById('submit').textContent = 'Publicar';
+    document.getElementById('cancel').hidden = true;
+  }
+
+  function edit(id) {
+    var n = NewsStore.get(id);
+    if (!n) return;
+    ['id', 'title', 'summary', 'body', 'category', 'author', 'eventStart', 'eventEnd', 'location', 'imageUrl'].forEach(function (k) {
+      form[k].value = n[k] || '';
+    });
+    form.publishAt.value = n.publishAt ? String(n.publishAt).slice(0, 16) : '';
+    form.expiresAt.value = n.expiresAt ? String(n.expiresAt).slice(0, 16) : '';
+    form.pinned.checked = !!n.pinned;
+    form.draft.checked = n.status !== 'published';
+    document.getElementById('form-title').textContent = 'Editar noticia';
+    document.getElementById('submit').textContent = 'Guardar cambios';
+    document.getElementById('cancel').hidden = false;
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (form.eventStart.value && form.eventEnd.value && form.eventEnd.value < form.eventStart.value) {
+      toast('La fecha final del evento es anterior a la inicial.'); return;
+    }
+    if (form.expiresAt.value && form.publishAt.value && form.expiresAt.value <= form.publishAt.value) {
+      toast('«Ocultar desde» debe ser posterior a «Publicar desde».'); return;
+    }
+    var item = {
+      title: form.title.value.trim(),
+      summary: form.summary.value.trim(),
+      body: form.body.value.trim(),
+      category: form.category.value,
+      author: form.author.value.trim(),
+      eventStart: form.eventStart.value,
+      eventEnd: form.eventEnd.value || form.eventStart.value,
+      location: form.location.value.trim(),
+      imageUrl: form.imageUrl.value.trim(),
+      publishAt: form.publishAt.value || localInput(new Date()),
+      expiresAt: form.expiresAt.value,
+      pinned: form.pinned.checked,
+      status: form.draft.checked ? 'draft' : 'published'
+    };
+    if (form.id.value) item.id = form.id.value;
+    NewsStore.save(item);
+    toast(item.id ? 'Cambios guardados' : (item.status === 'draft' ? 'Borrador guardado' : 'Noticia publicada'));
+    resetForm();
+    render();
+  });
+
+  document.getElementById('cancel').onclick = resetForm;
+
+  document.getElementById('rows').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-act]');
+    if (!b) return;
+    var id = b.getAttribute('data-id'), n = NewsStore.get(id);
+    if (b.getAttribute('data-act') === 'edit') edit(id);
+    if (b.getAttribute('data-act') === 'reset' && confirm('¿Volver a mostrar «' + n.title + '» a todos los asesores?')) {
+      NewsStore.resetReads(id); render(); toast('Se mostrará de nuevo a todos');
+    }
+    if (b.getAttribute('data-act') === 'del' && confirm('¿Eliminar «' + n.title + '»? No se puede deshacer.')) {
+      NewsStore.remove(id); render(); toast('Noticia eliminada');
+    }
+  });
+
+  window.addEventListener('storage', render);
+  resetForm();
+  render();
+})();
+</script>
+</body>
+</html>
