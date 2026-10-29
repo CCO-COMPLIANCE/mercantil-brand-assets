@@ -7,6 +7,7 @@ regenerados desde el PDF vectorial maestro: son **vectores reales**, no trazados
 
 - 🎨 **Vista previa web:** https://cco-compliance.github.io/mercantil-brand-assets/
 - 🤖 **Manifiesto para agentes:** [`brand.json`](brand.json)
+- 📰 **Noticias para asesores (Mercantil One):** [`news/`](news/README.md)
 - ⬇️ **Descargar todo:** [ZIP del repositorio](https://github.com/CCO-COMPLIANCE/mercantil-brand-assets/archive/refs/heads/main.zip)
 
 ---
@@ -46,6 +47,7 @@ tiff/             5670 × 3308 px, RGB sin compresión — original de imprenta
 pdf/              Vector maestro, 7 páginas (una por variante)
 legacy/           Recortes que ya estaban en uso en www.mercantil.com.do
 previews/         Miniaturas de este README
+news/             Módulo de Noticias de Mercantil One (vista asesor + admin)
 brand.json        Manifiesto legible por máquina
 ```
 
