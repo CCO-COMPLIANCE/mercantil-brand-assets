@@ -83,3 +83,20 @@ depender de hotlinks de terceros (autorizaciones ya confirmadas).
 | 6 Pruebas en iPhone | Requiere compilación en TestFlight (depende de lo anterior). |
 | MIA | No se localizó servicio, repositorio ni cola de MIA en los sistemas accesibles; no se puede confirmar si está detenida ni los 429 trabajos. |
 | Advisors / Marialis | No hay acceso a la base de datos de usuarios/advisors. `/advisors` público no expone correos. No se encontraron direcciones verificadas de Pedro Páez ni de los otros seis advisors. |
+
+---
+
+## 4. Verificación 2026-11-12 (web en producción)
+
+- **Residencial Opus — corregido en la web.** La tarjeta en `/proyectos/` sigue publicada (nombre,
+  ubicación, estado "Disponible") pero sin imagen; ya no hay ninguna referencia a repimar.com.
+  La ficha usa como `og:image` una foto real de su propia galería (`…/gallery/1783702600515-eu0w9s.webp`).
+  No se usó ninguna imagen inventada. Pendiente de comprobar: app y capturas de App Store.
+- **Política de privacidad** actualizada el 11 de noviembre de 2026. Ahora incluye la sección
+  "8. Inteligencia artificial": Mercantil IQ, Copilot y MIA; proveedor OpenAI; enmascarado previo;
+  posible tratamiento fuera de RD; la app móvil no incluye los asistentes. OpenAI figura entre los
+  destinatarios.
+- Página independiente del aviso de IA: no existe (`/aviso-ia`, `/ai-notice`, `/ia` → 404).
+- El sitio no se publica desde Vercel (equipo "thetrade's projects" sin proyectos); lo sirve Cloudflare.
+- Sin acceso todavía a `thetrade/mercantil-one`, ni a App Store Connect, ni a un Mac.
+- Gmail: ningún aviso de Apple (TestFlight o App Store Connect) en los últimos 12 días.
